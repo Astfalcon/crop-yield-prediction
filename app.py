@@ -1,10 +1,12 @@
 # from flask import Flask,request, render_template
 import numpy as np
-import pickle
+import joblib
+from pathlib import Path
 import sklearn
 print(sklearn.__version__)
 #loading models
-picklefile = pickle.load(open('picklefile.pkl','rb'))
+MODEL_PATH = Path(__file__).parent / "picklefile.pkl"
+model = joblib.load(MODEL_PATH)
 preprocessor = pickle.load(open('preprocessor.pkl','rb'))
 
 #flask app
@@ -32,5 +34,6 @@ def predict():
 if __name__=="__main__":
 
     app.run(debug=True)
+
 
 
