@@ -1,4 +1,4 @@
-from flask import Flask,request, render_template
+# from flask import Flask,request, render_template
 import numpy as np
 import pickle
 import sklearn
@@ -30,4 +30,5 @@ def predict():
         return render_template('index.html',prediction = prediction)
 
 if __name__=="__main__":
+
     app.run(debug=True)
